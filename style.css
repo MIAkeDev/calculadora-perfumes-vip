@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #2c2f33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Diseño del Celular */
+.phone-mockup {
+    width: 360px;
+    height: 740px;
+    background-color: #f4f7f6;
+    border-radius: 40px;
+    box-shadow: 0 0 0 12px #1f1f1f, 0 15px 35px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.notch {
+    width: 140px;
+    height: 25px;
+    background-color: #1f1f1f;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 10;
+}
+
+/* Cabecera */
+.app-header {
+    background: linear-gradient(135deg, #37b7c3, #1e88e5);
+    color: white;
+    padding: 45px 20px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.app-header h1 {
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.app-header p {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* Cuerpo de la App */
+.app-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    /* Ocultar scrollbar visualmente pero permitir scroll */
+    scrollbar-width: none; 
+}
+.app-body::-webkit-scrollbar { display: none; }
+
+/* Tarjeta de Inputs */
+.input-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group {
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.half {
+    width: 50%;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #37b7c3;
+}
+
+/* Botones */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.3s;
+    color: white;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background-color: #1e88e5;
+}
+
+.btn-success {
+    background-color: #4caf50;
+    margin-top: 10px;
+}
+
+/* Área de Previsualización */
+#previewResult {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.preview-hidden {
+    height: 0;
+    opacity: 0;
+    margin-top: 0 !important;
+}
+
+.preview-visible {
+    height: auto;
+    opacity: 1;
+}
+
+#resultadoUnitario {
+    color: #1e88e5;
+    font-size: 18px;
+}
+
+/* Lista de Items */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 80px; /* Espacio para el footer */
+}
+
+.item-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    animation: slideIn 0.3s ease forwards;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.item-details {
+    font-size: 12px;
+    color: #888;
+}
+
+.btn-delete {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-delete:hover {
+    background: #e60000;
+}
+
+/* Footer Total */
+.app-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+#montoTotal {
+    color: #37b7c3;
+    font-size: 22px;
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Nuevos estilos para la sección de exportación */
+.export-section {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+}
+
+.export-section input {
+    flex: 1;
+    padding: 10px;
+}
+
+.btn-dark {
+    background-color: #2c2f33;
+    width: auto;
+    padding: 10px 15px;
+    font-size: 13px;
+}
+
+.btn-dark:hover {
+    background-color: #1a1a1a;
+}
+
+/* Ajuste del padding inferior para que se vea toda la lista */
+.items-container {
+    padding-bottom: 140px; 
+}

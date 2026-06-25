@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador Leiar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="phone-mockup">
+        <div class="notch"></div>
+        
+        <header class="app-header">
+            <h1>Leiar</h1>
+            <p>Cotizador de Perfumes</p>
+        </header>
+
+        <main class="app-body">
+            <div class="input-card">
+                <div class="input-group">
+                    <input type="text" id="nombre" placeholder="Nombre (Ej. Club de Nuit)">
+                </div>
+                <div class="row">
+                    <div class="input-group half">
+                        <input type="number" id="precioUsd" placeholder="Precio ($)" step="0.01">
+                    </div>
+                    <div class="input-group half">
+                        <input type="number" id="cantidad" placeholder="Cant." min="1" max="30">
+                    </div>
+                </div>
+
+                <button id="btnCalcular" class="btn btn-primary" onclick="calcular()">Calcular</button>
+                
+                <div id="previewResult" class="preview-hidden">
+                    <p>Unitario: <span id="resultadoUnitario">S/ 0.00</span></p>
+                    <button id="btnAgregar" class="btn btn-success" onclick="agregar()">Agregar a la lista</button>
+                </div>
+            </div>
+
+            <div class="list-header">
+                <h3>Lista de Pedido (<span id="contadorItems">0</span>/30)</h3>
+            </div>
+            
+            <div class="items-container" id="listaPerfumes">
+                </div>
+        </main>
+
+        <footer class="app-footer">
+            <div class="total-row">
+                <span>Total Estimado:</span>
+                <span id="montoTotal">S/ 0.00</span>
+            </div>
+            
+            <div class="export-section">
+                <input type="text" id="numCotizacion" placeholder="Nº de cotización (Ej. 104)">
+                <button class="btn btn-dark" onclick="generarPDF()">Descargar PDF</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
