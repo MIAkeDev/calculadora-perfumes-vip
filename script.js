@@ -32,7 +32,7 @@ function calcular() {
     }
 
     // Fórmula: (USD * 3.50) + 6.25
-    precioCalculadoActual = (dolares * TASA_DOLAR) + RECARGO_FIJO;
+    precioCalculadoActual = (dolares + RECARGO_FIJO) * TASA_DOLAR  ;
     
     // Mostrar el resultado y el botón agregar
     txtResultadoUnitario.innerText = `S/ ${precioCalculadoActual.toFixed(2)}`;
